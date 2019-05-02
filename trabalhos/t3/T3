@@ -1,0 +1,46 @@
+1° Usando list comprehension, defina uma função add10toall :: [Int] -> [Int], que receba uma lista e adicione o valor 10 a cada elemento dessa lista, produzindo outra lista
+
+  l = [item for item in lista if item % 2 == 0] + [a]
+  
+  2° Usando list comprehension, defina uma função multN :: Int -> [Int] -> [Int], que receba um número N e uma lista, e multiplique cada elemento da lista por N, produzindo outra lista.
+  sumsquares n = sum [x * n | x <- [0..n]]
+  
+  3°
+  
+  4°  Usando list comprehension, escreva uma função addSuffix :: String -> [String] -> [String] , para adicionar um dado sufixo às strings contidas numa lista
+  
+   import re
+ p = re.compile(r'\b({})\b'.format('|'.join(a)))
+ [p.sub('', text).strip() for text in b]
+ 
+ 5° 
+ 
+  sum1::[Int]->[Int]
+sum1 [] = [0] // problem here 
+sum1 xs = [x| x <- xs ,x `mod` 2 == 0]
+
+6° 
+
+7° 
+import random
+
+lista = []
+par = []
+impar = []
+
+for i in range(20):
+	n = random.randint(20,50)
+	lista.append(n)
+
+	if n % 2 == 0: 
+		par.append(n)
+	else:
+		impar.append(n)
+
+lista.sort()
+par.sort()
+impar.sort()
+
+print "\nLISTA = ", lista
+print "PAR   = ", par
+print "IMPAR = ", impar, "\n"
