@@ -1,0 +1,81 @@
+
+vitima(anita).
+
+casal(anita,bernardo).
+casal(caren,bernardo).
+casal(anita,pedro).
+casal(alice,pedro).
+casal(alice,henrique).
+casal(maria,henrique).
+casal(maria,adriano).
+casal(caren,adriano).
+casal(bernardo,anita).
+casal(bernardo,caren).
+casal(pedro,anita).
+casal(pedro,alice).
+casal(henrique,alice).
+casal(henrique,maria).
+casal(adriano,maria).
+casal(adriano,caren).
+
+pobre(bia).
+pobre(pedro).
+pobre(maria).
+pobre(bernardo).
+rico(caren).
+rico(alice).
+rico(adriano).
+rico(henrique).
+
+insano(adriano).
+insano(maria).
+
+segunda_feira(pedro,santa_maria).
+segunda_feira(caren,porto_alegre).
+segunda_feira(henrique,apartamento).
+segunda_feira(bia,apartamento).
+segunda_feira(adriano,apartamento).
+segunda_feira(alice,apartamento).
+segunda_feira(bernardo,santa_maria).
+segunda_feira(maria,apartamento).
+terca_feira(pedro,santa_maria).
+terca_feira(caren,porto_alegre).
+terca_feira(henrique,porto_alegre).
+terca_feira(bia,porto_alegre).
+terca_feira(adriano,apartamento).
+terca_feira(alice,porto_alegre).
+terca_feira(bernardo,santa_maria).
+terca_feira(maria,santa_maria).
+quarta_feira(pedro,porto_alegre).
+quarta_feira(caren,porto_alegre).
+quarta_feira(henrique,apartamento).
+quarta_feira(bia,porto_alegre).
+quarta_feira(adriano,santa_maria).
+quarta_feira(alice,porto_alegre).
+quarta_feira(bernardo,porto_alegre).
+quarta_feira(maria,santa_maria).
+quinta_feira(pedro,santa_maria).
+quinta_feira(caren,santa_maria).
+quinta_feira(henrique,apartamento).
+quinta_feira(bia,santa_maria).
+quinta_feira(adriano,apartamento).
+quinta_feira(alice,apartamento).
+quinta_feira(bernardo,santa_maria).
+quinta_feira(maria,santa_maria).
+sexta_feira(pedro,apartamento).
+sexta_feira(caren,apartamento).
+sexta_feira(henrique,apartamento).
+sexta_feira(bia,apartamento).
+sexta_feira(adriano,apartamento).
+sexta_feira(alice,apartamento).
+sexta_feira(bernardo,apartamento).
+sexta_feira(maria,apartamento).
+
+local_crime(X) :- quinta_feira(X,apartamento) ; sexta_feira(X,apartamento).
+roubo_arma(X) :- quarta_feira(X,santa_maria) ; quarta_feira(X,apartamento) ; quinta_feira(X,porto_alegre) ; quinta_feira(X,apartamento).
+roubo_chave(X) :- segunda_feira(X,santa_maria) ; terca_feira(X,porto_alegre).
+namorou(X,Y) :- casal(X,Y) , casal(Y,X).
+motivo(X) :- ciumes(X,anita) ; insano(X) ; pobre(X).
+acesso(X) :- roubo_arma(X) , roubo_chave(X) , local_crime(X).
+ciumes(X,Y) :- namorou(Z,X), namorou(Y,Z).
+assassino(X) :- motivo(X), acesso(X).
