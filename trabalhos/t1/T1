@@ -1,0 +1,71 @@
+
+
+   haskell 
+   
+   
+    1° Crie uma função isVowel :: Char -> Bool que verifique se um caracter é uma vogal ou não em Haskell
+ 
+vowel :: String -> String
+vowel = filter isVowel
+
+
+2° Escreva uma função addComma, que adicione uma vírgula no final de cada string contida numa lista.
+
+solution :: [String] -> String
+solution =  concat . intersperse ", "
+
+
+3° Crie uma função htmlListItems :: [String] -> [String], que receba uma lista de strings e retorne outra lista contendo as strings formatadas como itens de lista em HTML.
+         showFilm :: Film -> String
+showFilm (title, director, year, ratings)
+  = title ++ " " ++ director ++ " [" ++ (show year) ++ "] [" ++ (show ratings) ++ "]"
+
+showFilms' :: [Film] -> String
+showFilms' = unlines . map showFilm
+
+
+4° Defina uma função que receba uma string e produza outra retirando as vogais,
+      noVowels :: String -> String
+noVowels [] = []
+noVowels (x:xs)
+   |isVowel x = noVowels xs
+   |otherwise = x : noVowels xs
+   
+   
+5° Defina uma função que receba uma string, possivelmente contendo espaços, e que retorne outra string substituindo os demais caracteres por '-', mas mantendo os espaços
+  newLine :: String -> String
+newline ""       = ""
+newLine (' ':xs) = '%':'5':'0': newLine xs
+newLine (x:xs)   = x: newLine xs
+
+6° Escreva uma função firstName :: String -> String que, dado o nome completo de uma pessoa, obtenha seu primeiro nome. Suponha que cada parte do nome seja separada por um espaço e que não existam espaços no início ou fim do nome. Dica: estude funções pré-definidas em Haskell
+  removeSpace :: [Char]     -> [Char]
+removeSpace    []         =  []
+removeSpace    (' ' : cs) =  cs
+removeSpace    (c   : cs) =  c : cs
+
+7° Escreva uma função isInt :: String -> Bool que verifique se uma dada string só contém dígitos de 0 a 9. 
+ import Data.Char (isDigit)
+
+checkNum :: String -> Bool
+checkNum = all isDigit
+
+8° Escreva uma função lastName :: String -> String que, dado o nome completo de uma pessoa, obtenha seu último sobrenome. Suponha que cada parte do nome seja separada por um espaço e que não existam espaços no início ou fim do nome
+ringList :: [string] -> [string]
+stringList [] = []
+stringList (x:xs)
+   |length x >= 10 = (take 10 x) : stringList (xs)
+      |length x < 10 = (x ++ (replicate (10 - (length x)) '.')) : stringList (xs)
+ 
+9° Escreva uma função userName :: String -> String que, dado o nome completo de uma pessoa, crie um nome de usuário (login) da pessoa, formado por: primeira letra do nome seguida do sobrenome, tudo em minúsculas
+
+  select first_name,
+       substr(first_name,1,2)||substr(lower(last_name),1,5) as "USER NAME",
+       last_name 
+from employees;      
+
+10° Escreva uma função encodeName :: String -> String que substitua vogais em uma string, conforme o esquema a seguir: a = 4, e = 3, i = 2, o = 1, u = 0
+
+  vowel :: String -> String
+vowel = filter isVowel
+
